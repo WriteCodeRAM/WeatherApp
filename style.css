@@ -48,6 +48,22 @@ nav{
 
 }
 
+.main-info{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.extra-info{
+    display: flex;
+    flex-direction: column;
+    /* border-left: 0.2rem solid black; */
+    padding: 12px;
+}
+
+.active{
+    border-left: 0.2rem solid black;
+}
 footer{
     height: 5vh;
 background-color: #2a9d8f;
@@ -57,11 +73,18 @@ justify-content: center;
 gap: 4px;
 }
 
-a{
+footer a{
+    display: flex;
     text-decoration: none;
     color: black ;
+    align-items: center;
+    gap: 4px;
 }
 
+a:hover{
+    transition: 0.5s ease;
+    color: #f4a261;
+}
 footer img:hover {
     width: 30px;
     height: 30px;
@@ -81,3 +104,4 @@ footer img:hover {
         transform:rotate(360deg); 
     } 
 }
+
