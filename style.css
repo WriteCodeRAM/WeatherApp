@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: .3rem;
+    background-color:#2a9d8f ;
+    height: 10vh;
+    
+}
+
+.left, .right{
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+}
+
+.weather-container{
+    background-color: #264653;
+    height: 85vh;
+
+}
+
+.search-city{
+    background-image: url(https://i.pinimg.com/originals/19/65/ab/1965ab7ef7de87fe748b3c66efbfc73a.jpg);
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    padding: 5px;
+    text-indent: 30px;
+    border-radius: 5px;
+    border: none; 
+    box-shadow: 2px 2px 5px black;
+}
+
+.weather-container{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.3rem;
+
+
+}
+
+footer{
+    height: 5vh;
+background-color: #2a9d8f;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 4px;
+}
+
+a{
+    text-decoration: none;
+    color: black ;
+}
+
+footer img:hover {
+    width: 30px;
+    height: 30px;
+    -webkit-animation:spin .5s linear ;
+    -moz-animation:spin .5s linear ;
+    animation:spin .5s linear ;
+}
+@-moz-keyframes spin { 
+    100% { -moz-transform: rotate(360deg); } 
+}
+@-webkit-keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); } 
+}
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
+}
