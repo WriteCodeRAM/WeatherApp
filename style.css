@@ -158,4 +158,61 @@ background: #2a9d8f;
 
   }
   
-  
+  /* responsive */
+  @media screen and (max-width: 620px) {
+    body{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .weather-container{
+        flex-direction: column;
+        height: 75vh;
+        justify-content: space-evenly;
+    }
+
+    .gif{
+        max-width: 75vw;
+    }
+
+    nav h1 {
+        display: none;
+    }
+
+    .city{
+        font-size: 1.5rem;
+    }
+
+    footer{
+        min-height: 12.5vh;
+    }
+
+    nav{
+        min-height: 12.5vh;
+    }
+    nav img{
+        max-height: 32px;
+    }
+  }
+
+    /* Media Query for low resolution  Tablets, Ipads */
+    @media (min-width: 481px) and (max-width: 767px) {
+        .weather-container {
+            flex-direction: column;
+            /* background-color: #e9c46a; */
+        }
+
+        .weather-container img {
+            max-height: 50vh;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px){
+        .weather-container {
+            max-height: 70vh;
+        }
+
+        footer{
+            min-height: 10vh;
+        }
+    }
