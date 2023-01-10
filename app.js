@@ -5,7 +5,9 @@ const weatherReport = document.querySelector('.weather-report');
 const weatherGIF = document.querySelector('.weather-GIF');
 const mainInfo = document.querySelector('.main-info');
 const extraInfo = document.querySelector('.extra-info');
+const slider = document.querySelector('.slider');
 
+console.log(slider);
 const getWeather = async function () {
   try {
     const res = await fetch(
@@ -17,7 +19,7 @@ const getWeather = async function () {
     displayWeather(resData);
   } catch (err) {
     console.log(`couldnt find that city, ${err}`);
-    mainInfo.innerText = 'Could not find that city';
+    mainInfo.innerText = `City not found`;
   }
 };
 
@@ -31,7 +33,7 @@ searchBar.addEventListener('keypress', (e) => {
 
 //kelvin to celcius
 const KtoC = function (K) {
-  return K - 273.15 + '°C';
+  return Math.round(K - 273.15) + '°C';
 };
 
 //Kelvin to farenheight
@@ -46,7 +48,10 @@ const displayWeather = (obj) => {
   const description = document.createElement('p');
   const city = document.createElement('h1');
   const weather = document.createElement('h1');
+  const slider = document.createElement('input');
 
+  slider.type = 'checkbox';
+  slider.classList.add('slider');
   description.innerText = obj.weather[0].description;
   city.innerText = obj.name;
   weather.innerText = KtoF(obj.main.temp);
@@ -57,6 +62,7 @@ const displayWeather = (obj) => {
   mainInfo.appendChild(description);
   mainInfo.appendChild(city);
   mainInfo.appendChild(weather);
+  mainInfo.appendChild(slider);
 
   // p for feels like
   // p for today's high
@@ -74,9 +80,23 @@ const displayWeather = (obj) => {
   extraInfo.appendChild(feelsLike);
   extraInfo.appendChild(todaysHigh);
   extraInfo.appendChild(humidity);
+
+  function toggleSlider() {
+    if (!slider.checked) {
+      feelsLike.innerText = `Feels like: ${KtoF(obj.main.feels_like)}`;
+      todaysHigh.innerText = `Today's high: ${KtoF(obj.main.temp_max)}`;
+      weather.innerText = KtoF(obj.main.temp);
+    } else {
+      feelsLike.innerText = `Feels like: ${KtoC(obj.main.feels_like)}`;
+      todaysHigh.innerText = `Today's high: ${KtoC(obj.main.temp_max)}`;
+      weather.innerText = KtoC(obj.main.temp);
+    }
+  }
+
+  slider.addEventListener('click', toggleSlider);
 };
 
 const clearWeather = function () {
-  mainInfo.innerHTML = ``;
-  extraInfo.innerHTML = ``;
+  mainInfo.innerText = ``;
+  extraInfo.innerText = ``;
 };
